@@ -17,6 +17,12 @@
 </body>
 <script>
     function share() {
+        
+         navigator.share({
+      url: this.shareUrl,
+      text: this.shareText,
+    });
+        return ; 
         if (navigator.share) {
             navigator.share({
                 title: title.value,
