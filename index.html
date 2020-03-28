@@ -25,16 +25,20 @@
       //         title: "heoooooo",
    // });
     //    return ; 
-        if (navigator.canShare()) {
-            navigator.share({
+        
+         try {
+   
+             await navigator.share({
                 title: title.value,
                 text: text.value,
                 url: url.value,
             })
                 .then(() => console.log('Successful '))
                 .catch((error) => console.log('Error ', error));
-        } else {
-            console.log("errorrrr")
-        }
+      
+  } catch(err) {
+    resultPara.textContent = 'Error: ' + e
+  }
+       
     }
 </script>
