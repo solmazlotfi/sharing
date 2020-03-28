@@ -8,7 +8,8 @@ function randomValueFromArray(array) {
 
 setInterval(function() {
   let randomChoice = randomValueFromArray(images);
-  imgElem.src = 'images/' + randomChoice + '.jpg';
+  //imgElem.src = 'images/' + randomChoice + '.jpg';
+  imgElem.src = 'http://www.kiccc.com/Content/_Layouts/Spring_Home.fa-IR/imgs/irankish_logo.png';
 }, 2000)
 
 // Register service worker to control making site work offline
