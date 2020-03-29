@@ -1,3 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - My ASP.NET Application</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet"/>
+<link href="/Content/site.css" rel="stylesheet"/>
+
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Home/About">About</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+        <li><a href="/Account/Register" id="registerLink">Register</a></li>
+        <li><a href="/Account/Login" id="loginLink">Log in</a></li>
+    </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
 <title>
     Web Share API
 </title>
@@ -23,6 +63,7 @@
     <div>
 
         for test1
+        <br/>
         <input type="text" value="Qput" id="title" />
         <br />
         <input type="text" value="Check out Qput." id="text" />
@@ -34,6 +75,14 @@
         <button onclick="share()">Share</button>
         <button id="addb" class="add-button" style="display:block">Add to home screen</button>
     </div>
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"2d398a37ecc74543823ede3344ddf6ba"}
+</script>
+<script type="text/javascript" src="http://localhost:18981/40a1f319e8ab4001ae1747cb75bb2814/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
 </body>
 <script>
     function share() {
@@ -65,7 +114,7 @@
   let deferredPrompt;
 var addBtn = document.getElementById('addb'); //document.querySelector('.add-button');
 //addBtn.setAttribute("style", "display:block;");
-addBtn.style.display = 'none';
+//addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -90,5 +139,33 @@ window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = null;
       });
   });
+
 });
+
+window.addEventListener('appinstalled', (event) => {
+    alert('installed');
+})
+
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    alert('display-mode is standalone');
+}
+
+if (window.navigator.standalone === true) {
+    alert('display-mode is standalone');
+}
+
 </script>
+        <hr />
+        <footer>
+            <p>&copy; 2020 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+<script src="/Scripts/respond.js"></script>
+
+    
+</body>
+</html>
