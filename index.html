@@ -16,15 +16,13 @@
             left: 1px;
         }
     </style>
-    
+
 </head>
 <body>
-
     <br />
     <div>
-
         for test1
-        <br/>
+        <br />
         <input type="text" value="Qput" id="title" />
         <br />
         <input type="text" value="Check out Qput." id="text" />
@@ -36,112 +34,108 @@
         <button onclick="share()">Share</button>
         <button id="addb" class="add-button" style="display:block">Add to home screen</button>
     </div>
-
-<!-- Visual Studio Browser Link -->
-<script type="application/json" id="__browserLink_initializationData">
-    {"appName":"Chrome","requestId":"2d398a37ecc74543823ede3344ddf6ba"}
-</script>
-<script type="text/javascript" src="http://localhost:18981/40a1f319e8ab4001ae1747cb75bb2814/browserLink" async="async"></script>
-<!-- End Browser Link -->
-
+    <!-- Visual Studio Browser Link -->
+    <script type="application/json" id="__browserLink_initializationData">
+        {"appName":"Chrome","requestId":"2d398a37ecc74543823ede3344ddf6ba"}
+    </script>
+    <script type="text/javascript" src="http://localhost:18981/40a1f319e8ab4001ae1747cb75bb2814/browserLink" async="async"></script>
+    <!-- End Browser Link -->
 </body>
 <script>
     function share() {
 
-         //navigator.share({
-     // url: 'https://solmazlotfi.github.io/sharing/index.html',
-     // text: 'Sharing on mobile phone ',
-      //         title: "heoooooo",
-   // });
-    //    return ;
+        //navigator.share({
+        // url: 'https://solmazlotfi.github.io/sharing/index.html',
+        // text: 'Sharing on mobile phone ',
+        //         title: "heoooooo",
+        // });
+        //    return ;
 
-         try {
+        try {
 
-              navigator.share({
+            navigator.share({
                 title: title.value,
                 text: text.value,
                 url: "https://solmazlotfi.github.io/sharing/index.html",
             })
-                .then(() => console.log('Successful '))
-                .catch((error) => console.log('Error ', error));
+              .then(() => console.log('Successful '))
+              .catch((error) => console.log('Error ', error));
 
-  } catch(err) {
-    resultPara.textContent = 'Error: ' + e
-  }
+        } catch (err) {
+            resultPara.textContent = 'Error: ' + e
+        }
 
     }
 </script>
 <script type="text/javascript">
-  var deferredPrompt;
-var addBtn = document.getElementById('addb'); //document.querySelector('.add-button');
-//addBtn.setAttribute("style", "display:block;");
+    var deferredPrompt;
+    var addBtn = document.getElementById('addb'); //document.querySelector('.add-button');
+    //addBtn.setAttribute("style", "display:block;");
     //addBtn.style.display = 'none';
 
-window.addEventListener('beforeinstallprompt', function(e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI to notify the user they can add to home screen
-  addBtn.style.display = 'block';
- 
-  showAddToHomeScreen();
-    
- // addBtn.addEventListener('click', (e) => {
- //   // hide our user interface that shows our A2HS button
- //   addBtn.style.display = 'none';
- //   // Show the prompt
-//    deferredPrompt.prompt();
-//    // Wait for the user to respond to the prompt
- //   deferredPrompt.userChoice.then((choiceResult) => {
- //       if (choiceResult.outcome === 'accepted') {
- //         console.log('User accepted the A2HS prompt');
-   //     } else {
-   //       console.log('User dismissed the A2HS prompt');
-   //     }
-   //     deferredPrompt = null;
-   //   });
-  //});
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI to notify the user they can add to home screen
+        addBtn.style.display = 'block';
 
-});
+        //addBtn.addEventListener('click', (e) => {
+        //    // hide our user interface that shows our A2HS button
+        //    addBtn.style.display = 'none';
+        //    // Show the prompt
+        //    deferredPrompt.prompt();
+        //    // Wait for the user to respond to the prompt
+        //    deferredPrompt.userChoice.then((choiceResult) => {
+        //        if (choiceResult.outcome === 'accepted') {
+        //            console.log('User accepted the A2HS prompt');
+        //        } else {
+        //            console.log('User dismissed the A2HS prompt');
+        //        }
+        //        deferredPrompt = null;
+        //    });
+        //});
+        showAddToHomeScreen();
+    });
 
-function showAddToHomeScreen() { 
-    addBtn.style.display = "block"; 
-    addBtn.addEventListener("click", addToHomeScreen);
-}
- 
-function addToHomeScreen() {
- //var a2hsBtn = document.querySelector(".ad2hs-prompt");
+    function showAddToHomeScreen() {
+        addBtn.style.display = "block";
+        addBtn.addEventListener("click", addToHomeScreen);
+    }
 
- // hide our user interface that shows our A2HS button a2hsBtn.style.display = 'none';
+    function addToHomeScreen() {
+        //var a2hsBtn = document.querySelector(".ad2hs-prompt");
 
- // Show the prompt deferredPrompt.prompt();
+        // hide our user interface that shows our A2HS button a2hsBtn.
+        addBtn.style.display = 'none';
 
- // Wait for the user to respond to the prompt deferredPrompt.userChoice .then(function(choiceResult){
+        // Show the prompt
+        deferredPrompt.prompt();
 
- if (choiceResult.outcome === 'accepted') 
- { 
-     alert('User accepted the A2HS prompt'); 
- } 
- else 
- {
-    alert('User dismissed the A2HS prompt'); 
- } 
- deferredPrompt = null;
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then(function (choiceResult) {
 
-}
-    
-window.addEventListener('appinstalled', (event) => {
-    alert('installed');
-})
-    
-if (window.matchMedia('(display-mode: standalone)').matches) {
-    alert('display-mode is standalone');
-}
+            if (choiceResult.outcome === 'accepted') {
+                alert('User accepted the A2HS prompt');
+            }
+            else {
+                alert('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+        });
+    }
 
-if (window.navigator.standalone === true) {
-    alert('display-mode is standalone');
-}
+    window.addEventListener('appinstalled', (event) => {
+        alert('installed');
+    })
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        alert('display-mode is standalone');
+    }
+
+    if (window.navigator.standalone === true) {
+        alert('display-mode is standalone');
+    }
 
 </script>
-    
