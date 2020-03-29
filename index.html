@@ -1,21 +1,66 @@
 <title>
     Web Share API
 </title>
-
 <head>
-<meta property="og:description" content=" digital wallet (or e-wallet) is a software-based system that securely stores users' payment information and passwords for numerous payment methods and websites. By using a digital wallet, users can complete purchases easily and quickly with near-field communications technology" />
-<meta property="og:site_name" content="irankish" />
-<meta property="og:title" content="Qput" />
-<meta property="og:image" content="http://www.kiccc.com/Content/_Layouts/Spring_Home.fa-IR/imgs/irankish_logo.png" itemprop="image" />
-<meta property="og:type" content="website" />
-<meta content="http://www.kiccc.com/Content/_Layouts/Spring_Home.fa-IR/imgs/irankish_logo.png" itemprop="image">
-<style>
-    .add-button {
-          position: absolute;
-          top: 1px;
-          left: 1px;
+    <meta property="og:description" content=" digital wallet (or e-wallet) is a software-based system that securely stores users' payment information and passwords for numerous payment methods and websites. By using a digital wallet, users can complete purchases easily and quickly with near-field communications technology" />
+    <meta property="og:site_name" content="irankish" />
+    <meta property="og:title" content="Qput" />
+    <meta property="og:image" content="http://www.kiccc.com/Content/_Layouts/Spring_Home.fa-IR/imgs/irankish_logo.png" itemprop="image" />
+    <meta property="og:type" content="website" />
+    <meta content="http://www.kiccc.com/Content/_Layouts/Spring_Home.fa-IR/imgs/irankish_logo.png" itemprop="image">
+    <style>
+        .add-button {
+            position: absolute;
+            top: 1px;
+            left: 1px;
         }
-</style>
+    </style>
+    
+</head>
+<body>
+
+    <br />
+    <div>
+
+        for test1
+        <input type="text" value="Qput" id="title" />
+        <br />
+        <input type="text" value="Check out Qput." id="text" />
+        <br />
+        <input type="text" value="https://web.dev/" id="url" />
+        <br />
+        <input type="file" id="file" />
+        <br />
+        <button onclick="share()">Share</button>
+        <button id="addb" class="add-button" style="display:block">Add to home screen</button>
+    </div>
+</body>
+<script>
+    function share() {
+
+         //navigator.share({
+     // url: 'https://solmazlotfi.github.io/sharing/index.html',
+     // text: 'Sharing on mobile phone ',
+      //         title: "heoooooo",
+   // });
+    //    return ;
+
+         try {
+
+              navigator.share({
+                title: title.value,
+                text: text.value,
+                url: "https://solmazlotfi.github.io/sharing/index.html",
+            })
+                .then(() => console.log('Successful '))
+                .catch((error) => console.log('Error ', error));
+
+  } catch(err) {
+    resultPara.textContent = 'Error: ' + e
+  }
+
+    }
+</script>
 <script type="text/javascript">
   let deferredPrompt;
 var addBtn = document.getElementById('addb'); //document.querySelector('.add-button');
@@ -45,50 +90,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = null;
       });
   });
-});    
-</script>
-</head>
-<body>
- 
-  <br/>
-    <div>
-       
-        for test1
-        <input type="text"  value="Qput" id="title" />
-        <br/>
-        <input type="text" value="Check out Qput." id="text" />
-        <br/>
-        <input type="text" value="https://web.dev/" id="url" />
-        <br/>
-        <input type="file" id="file" />
-        <br/>
-        <button onclick="share()">Share</button>
-        <button id="addb" class="add-button" style="display:block">Add to home screen</button>
-    </div>
-</body>
-<script>
-    function share() {
-        
-         //navigator.share({
-     // url: 'https://solmazlotfi.github.io/sharing/index.html',
-     // text: 'Sharing on mobile phone ',
-      //         title: "heoooooo",
-   // });
-    //    return ; 
-        
-         try {
-   
-              navigator.share({
-                title: title.value,
-                text: text.value,
-                url: "https://solmazlotfi.github.io/sharing/index.html",
-            })
-                .then(() => console.log('Successful '))
-                .catch((error) => console.log('Error ', error));
-      
-  } catch(err) {
-    resultPara.textContent = 'Error: ' + e
-  }
-       
-    }
+});
 </script>
