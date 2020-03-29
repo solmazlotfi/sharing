@@ -10,6 +10,17 @@
     </p>
     <button hidden>Show Prompt</button>
     <script>
+         window.addEventListener('beforeinstallprompt', event => {
+          event.preventDefault();
+          var button = document.querySelector('button');
+          button.removeAttribute('hidden');
+          button.addEventListener('click', () => {
+            event.prompt();
+            button.setAttribute('disabled', true);
+          });
+        });
+      
+      
       if ('serviceWorker' in navigator){
   navigator.serviceWorker.register('sw.js').then(function(registration){
     console.log('service worker registration succeeded:',registration);
@@ -22,15 +33,7 @@ else{
   console.log('service workers are not supported.');
 }
 
-        window.addEventListener('beforeinstallprompt', event => {
-          event.preventDefault();
-          var button = document.querySelector('button');
-          button.removeAttribute('hidden');
-          button.addEventListener('click', () => {
-            event.prompt();
-            button.setAttribute('disabled', true);
-          });
-        });
+     
       
     </script>
   </body>
