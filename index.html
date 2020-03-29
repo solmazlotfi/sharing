@@ -19,6 +19,9 @@
 </head>
 <body>
   <script src="index.js"></script>  
+  <script>
+    document.getElementById('add').style.display='block';  
+  </script>
   <br/>
     <div>
        
@@ -32,7 +35,7 @@
         <input type="file" id="file" />
         <br/>
         <button onclick="share()">Share</button>
-        <button class="add-button" style="display:block">Add to home screen</button>
+        <button id='add' class="add-button" style="display:block">Add to home screen</button>
     </div>
 </body>
 <script>
