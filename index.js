@@ -24,6 +24,7 @@
 
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
+addBtn.setAttribute("style", "display:block;");
 addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
