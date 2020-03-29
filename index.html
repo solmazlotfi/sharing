@@ -32,7 +32,7 @@
         <input type="file" id="file" />
         <br />
         <button onclick="share()">Share</button>
-        <button id="addb" class="add-button" style="display:block">Add to home screen</button>
+        <button id="addb" class="add-button" onclick="addToHomeScreen()" style="display:block">Add to home screen</button>
     </div>
     <!-- Visual Studio Browser Link -->
     <script type="application/json" id="__browserLink_initializationData">
@@ -96,7 +96,7 @@
         //        deferredPrompt = null;
         //    });
         //});
-        showAddToHomeScreen();
+      //  showAddToHomeScreen();
     });
 
     function showAddToHomeScreen() {
